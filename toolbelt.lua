@@ -31,7 +31,7 @@ function Emitter:__init ()
   self._handlers = {}
 end
 
-function Emitter:onMissing (name, ...)
+function Emitter:onmissing (name, ...)
   if 'error' == name then
     if process ~= self then
       local handlers = process.handlers
@@ -87,7 +87,7 @@ function Emitter:emit (name, ...)
       end
     end
   else
-    self:onMissing(name, ...)
+    self:onmissing(name, ...)
     return false
   end
 
